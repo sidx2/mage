@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Age</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #181818;
+            color: #FFFFFF;
+            overflow: hidden;
+            font-size: 4vw;
+        }
+        h1 {
+            font-size: 3em;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="age"></h1>
+    
+    <script>
+        function calculateAge() {
+            const birthDate = new Date('2002-09-30T00:00:00');
+            const now = new Date();
+            const ageInMilliseconds = now - birthDate;
+            const ageInYears = ageInMilliseconds / (1000 * 60 * 60 * 24 * 365.25);
+            document.getElementById('age').innerText = ageInYears.toFixed(8);
+        }
+        
+        setInterval(calculateAge, 1000);
+        calculateAge(); // Initial call
+    </script>
+</body>
+</html>
+
